@@ -1,5 +1,11 @@
 package es.foodify.ui.main
 
-class MainPresenter {
+import es.foodify.ui.common.BasePresenter
+
+class MainPresenter(private val view: MainView) : BasePresenter() {
+
+    fun onInit() {
+        view.showProfile()
+    }
 
 }
