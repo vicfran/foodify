@@ -28,7 +28,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
 
     private fun init() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        presenter.onInit()
+        navigation.selectedItemId = id.navigation_profile
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -42,10 +42,11 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
             id.navigation_home -> {
                 return@OnNavigationItemSelectedListener true
             }
-            id.navigation_dashboard -> {
+            id.navigation_foodies -> {
                 return@OnNavigationItemSelectedListener true
             }
-            id.navigation_notifications -> {
+            id.navigation_profile -> {
+                presenter.onProfileClicked()
                 return@OnNavigationItemSelectedListener true
             }
         }

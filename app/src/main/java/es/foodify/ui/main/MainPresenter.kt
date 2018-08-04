@@ -4,7 +4,7 @@ import es.foodify.ui.common.BasePresenter
 
 class MainPresenter(private val view: MainView) : BasePresenter() {
 
-    fun onInit() {
+    fun onProfileClicked() {
         view.showProfile()
     }
 
