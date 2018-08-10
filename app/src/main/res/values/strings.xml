@@ -2,5 +2,10 @@
     <string name="app_name">Foodify</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+
     <string name="title_notifications">Notifications</string>
+
+    <string name="title_location">¿Dónde quieres comer?</string>
+    <string name="title_food">¿Qué te apetece?</string>
+    <string name="title_time">¿A qué hora?</string>
 </resources>

@@ -1,8 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/baseline">
 
-</LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/me"
+                app:civ_border_color="@color/colorPrimaryDark"
+                app:civ_border_width="3dp"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:focusable="true"
+                android:foreground="@drawable/image_overlay"/>
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:layout_below="@id/ivProfile"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/colorPrimary"
+                android:text="Victor de Francisco"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:focusable="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/tvLocationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_location"/>
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:layout_below="@id/tvLocationTitle"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"
+                android:text="Madrid"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/tvFoodTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLocation"
+                android:layout_marginTop="15dp"
+                android:text="@string/title_food"/>
+
+            <TextView
+                android:id="@+id/tvFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvFoodTitle"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"
+                android:text="Pasta, Pescado, Carne"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/tvTimeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvFood"
+                android:layout_marginTop="15dp"
+                android:text="@string/title_time"/>
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTimeTitle"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"
+                android:text="14:00-15:00"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:focusable="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
