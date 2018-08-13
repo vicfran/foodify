@@ -1,6 +1,8 @@
 package es.foodify.ui.profile
 
 import es.foodify.ui.common.BasePresenter
+import es.foodify.ui.common.TimeModel
+import es.foodify.ui.common.toTimeModel
 
 class ProfilePresenter(private val view: ProfileView) : BasePresenter() {
 
@@ -23,11 +25,11 @@ class ProfilePresenter(private val view: ProfileView) : BasePresenter() {
     }
 
     fun onTimeClicked(time: String) {
-        view.showEditTime(time)
+        view.showEditTime(time.toTimeModel())
     }
 
-    fun onTimeChanged(hourOfDay: Int, minute: Int) {
-        view.showChangedTime("$hourOfDay:$minute")
+    fun onTimeChanged(hour: Int, minutes: Int) {
+        view.showChangedTime(TimeModel(hour, minutes).toString())
     }
 
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.yarolegovich.lovelydialog.LovelyTextInputDialog
 import es.foodify.R
 import es.foodify.ui.common.BaseFragment
+import es.foodify.ui.common.TimeModel
 import kotlinx.android.synthetic.main.fragment_profile.ivProfile
 import kotlinx.android.synthetic.main.fragment_profile.tvFood
 import kotlinx.android.synthetic.main.fragment_profile.tvLocation
@@ -50,12 +51,12 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
 
     override fun showEditFood(food: String) {}
 
-    override fun showEditTime(time: String) {
+    override fun showEditTime(time: TimeModel) {
         TimePickerDialog(
             activity,
             TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->  presenter.onTimeChanged(hourOfDay, minute) },
-            0,
-            0,
+            time.hour,
+            time.minutes,
             true).show()
     }
 

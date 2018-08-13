@@ -1,5 +1,7 @@
 package es.foodify.ui.profile
 
+import es.foodify.ui.common.TimeModel
+
 interface ProfileView {
 
     fun showEditName(name: String)
@@ -10,7 +12,7 @@ interface ProfileView {
 
     fun showEditFood(food: String)
 
-    fun showEditTime(time: String)
+    fun showEditTime(time: TimeModel)
 
     fun showChangedTime(time: String)
 
