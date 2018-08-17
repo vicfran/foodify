@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/baseline">
 
     <LinearLayout
@@ -52,10 +53,10 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textColor="@color/colorPrimary"
-                android:text="Victor de Francisco"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:focusable="true"/>
+                android:focusable="true"
+                tools:text="Victor de Francisco"/>
 
         </RelativeLayout>
 
@@ -80,10 +81,10 @@
                 android:layout_below="@id/tvLocationTitle"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="20sp"
-                android:text="Madrid"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:focusable="true"/>
+                android:focusable="true"
+                tools:text="Madrid"/>
 
             <TextView
                 android:id="@+id/tvFoodTitle"
@@ -94,7 +95,7 @@
                 android:text="@string/title_food"/>
 
             <TextView
-                android:id="@+id/tvFood"
+                android:id="@+id/tvFoods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvFoodTitle"
@@ -103,16 +104,16 @@
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="20sp"
-                android:text="Pasta, Pescado, Carne"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:focusable="true"/>
+                android:focusable="true"
+                tools:text="Pasta, Pescado, Carne"/>
 
             <TextView
                 android:id="@+id/tvTimeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvFood"
+                android:layout_below="@id/tvFoods"
                 android:layout_marginTop="15dp"
                 android:text="@string/title_time"/>
 
@@ -126,10 +127,10 @@
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="20sp"
-                android:text="14:00"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:focusable="true"/>
+                android:focusable="true"
+                tools:text="14:00"/>
 
         </RelativeLayout>
 

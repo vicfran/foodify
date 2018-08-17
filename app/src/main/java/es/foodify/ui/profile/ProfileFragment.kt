@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.yarolegovich.lovelydialog.LovelyChoiceDialog
 import com.yarolegovich.lovelydialog.LovelyTextInputDialog
 import es.foodify.R
 import es.foodify.ui.common.BaseFragment
-import es.foodify.ui.common.TimeModel
+import es.foodify.ui.common.models.FoodsModel
+import es.foodify.ui.common.models.TimeModel
 import kotlinx.android.synthetic.main.fragment_profile.ivProfile
-import kotlinx.android.synthetic.main.fragment_profile.tvFood
+import kotlinx.android.synthetic.main.fragment_profile.tvFoods
 import kotlinx.android.synthetic.main.fragment_profile.tvLocation
 import kotlinx.android.synthetic.main.fragment_profile.tvName
 import kotlinx.android.synthetic.main.fragment_profile.tvTime
@@ -25,11 +28,29 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
         ivProfile.setOnClickListener { presenter.onImageClicked() }
         with (tvName) { setOnClickListener { presenter.onNameClicked(text.toString()) }}
         with (tvLocation) { setOnClickListener { presenter.onLocationClicked(text.toString()) }}
-        with (tvFood) { setOnClickListener { presenter.onFoodClicked(text.toString()) }}
+        with (tvFoods) { setOnClickListener { presenter.onFoodsClicked(listOf(text.toString())) }}
         with (tvTime) { setOnClickListener { presenter.onTimeClicked(text.toString()) }}
     }
 
-    override fun presenter(): ProfilePresenter = ProfilePresenter(this)
+    override fun onResume() {
+        super.onResume()
+        presenter.onProfileNeeded()
+    }
+
+    override fun presenter(): ProfilePresenter = ProfilePresenter(this, assembler.repositoryProvider)
+
+    override fun showProfile(profile: ProfileModel) {
+        with (profile) {
+            showName(name)
+            showLocation(location)
+            showFoods(foods)
+            showTime(time)
+        }
+    }
+
+    override fun showName(name: String) {
+        tvName.text = name
+    }
 
     override fun showEditName(name: String) {
         LovelyTextInputDialog(activity)
@@ -43,13 +64,32 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
             .show()
     }
 
-    override fun showChangedName(name: String) {
-        tvName.text = name
+    override fun showLocation(location: String) {
+        tvLocation.text = location
     }
 
     override fun showEditLocation(location: String) {}
 
-    override fun showEditFood(food: String) {}
+    override fun showFoods(foods: FoodsModel) {
+        tvFoods.text = foods.toString()
+    }
+
+    override fun showEditFoods(foods: FoodsModel) {
+        val foods = foods.values
+        LovelyChoiceDialog(activity)
+            .setTopColorRes(R.color.colorPrimary)
+            .setTitle(R.string.title_food)
+            .setIcon(R.drawable.ic_food)
+            .setIconTintColor(resources.getColor(R.color.baseline))
+            .setItemsMultiChoice(foods, { positions, items -> Toast.makeText(activity, items.toString(), Toast.LENGTH_SHORT).show()})
+            .setConfirmButtonColor(resources.getColor(R.color.colorPrimary))
+            .setConfirmButtonText(android.R.string.ok)
+            .show()
+    }
+
+    override fun showTime(time: TimeModel) {
+        tvTime.text = time.toString()
+    }
 
     override fun showEditTime(time: TimeModel) {
         TimePickerDialog(
@@ -58,10 +98,6 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
             time.hour,
             time.minutes,
             true).show()
-    }
-
-    override fun showChangedTime(time: String) {
-        tvTime.text = time
     }
 
 }

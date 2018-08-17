@@ -1,10 +1,17 @@
 package es.foodify.ui.profile
 
+import es.foodify.common.RepositoryProvider
 import es.foodify.ui.common.BasePresenter
-import es.foodify.ui.common.TimeModel
-import es.foodify.ui.common.toTimeModel
+import es.foodify.ui.common.models.TimeModel
+import es.foodify.ui.common.models.toFoodsModel
+import es.foodify.ui.common.models.toTimeModel
+import es.foodify.ui.common.models.toViewModel
 
-class ProfilePresenter(private val view: ProfileView) : BasePresenter() {
+class ProfilePresenter(private val view: ProfileView, repositoryProvider: RepositoryProvider) : BasePresenter() {
+
+    private val userRepository = repositoryProvider.userRepository
+
+    fun onProfileNeeded() = view.showProfile(userRepository.getMyProfile().toViewModel())
 
     fun onImageClicked() {}
 
@@ -13,15 +20,15 @@ class ProfilePresenter(private val view: ProfileView) : BasePresenter() {
     }
 
     fun onNameChanged(name: String) {
-        view.showChangedName(name)
+        view.showName(name)
     }
 
     fun onLocationClicked(location: String) {
         view.showEditLocation(location)
     }
 
-    fun onFoodClicked(food: String) {
-        view.showEditFood(food)
+    fun onFoodsClicked(foods: List<String>) {
+        view.showEditFoods(foods.toFoodsModel())
     }
 
     fun onTimeClicked(time: String) {
@@ -29,7 +36,7 @@ class ProfilePresenter(private val view: ProfileView) : BasePresenter() {
     }
 
     fun onTimeChanged(hour: Int, minutes: Int) {
-        view.showChangedTime(TimeModel(hour, minutes).toString())
+        view.showTime(TimeModel(hour, minutes))
     }
 
 }

@@ -1,5 +1,7 @@
 package es.foodify.ui.common
 
+import es.foodify.ui.common.models.TimeModel
+import es.foodify.ui.common.models.toTimeModel
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

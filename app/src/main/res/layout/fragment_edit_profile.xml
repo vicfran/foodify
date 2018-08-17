@@ -55,7 +55,7 @@
                 android:textSize="30sp"/>
 
         <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/tvFood"
+                android:id="@+id/tvFoods"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Italiana"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_below="@id/tvFood"
+                android:layout_below="@id/tvFoods"
                 android:textColor="@color/colorPrimary"
                 android:backgroundTint="@color/colorPrimary"
                 android:textSize="20sp"/>

@@ -1,3 +1,7 @@
 package es.foodify.common
 
-class Assembler
+class Assembler {
+
+    val repositoryProvider = RepositoryProvider()
+
+}

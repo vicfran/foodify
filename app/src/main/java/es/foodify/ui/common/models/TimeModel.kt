@@ -1,4 +1,4 @@
-package es.foodify.ui.common
+package es.foodify.ui.common.models
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
