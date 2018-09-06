@@ -10,6 +10,7 @@ import es.foodify.ui.common.models.toViewModel
 class ProfilePresenter(private val view: ProfileView, repositoryProvider: RepositoryProvider) : BasePresenter() {
 
     private val userRepository = repositoryProvider.userRepository
+    private val foodsRepository = repositoryProvider.foodsRepository
 
     fun onProfileNeeded() = view.showProfile(userRepository.getMyProfile().toViewModel())
 
@@ -27,8 +28,12 @@ class ProfilePresenter(private val view: ProfileView, repositoryProvider: Reposi
         view.showEditLocation(location)
     }
 
-    fun onFoodsClicked(foods: List<String>) {
-        view.showEditFoods(foods.toFoodsModel())
+    fun onFoodsClicked(foods: String) {
+        view.showEditFoods(foods.toFoodsModel(), foodsRepository.foods().toViewModel())
+    }
+
+    fun onFoodsChanged(foods: List<String>) {
+        view.showFoods(foods.toFoodsModel())
     }
 
     fun onTimeClicked(time: String) {

@@ -17,7 +17,7 @@ interface ProfileView {
 
     fun showFoods(foods: FoodsModel)
 
-    fun showEditFoods(foods: FoodsModel)
+    fun showEditFoods(foods: FoodsModel, all: FoodsModel)
 
     fun showTime(time: TimeModel)
 

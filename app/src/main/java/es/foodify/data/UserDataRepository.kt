@@ -12,8 +12,8 @@ class UserDataRepository : UserRepository {
         User(
             "Victor de Francisco",
             "Madrid",
-            Foods(listOf(Food("Pasta"))),
-            Time(14, 0)
+            Foods(listOf(Food("Chino"), Food("Italiano"))),
+            Time(14, 15)
         )
 
 }
