@@ -4,4 +4,6 @@ interface MainView {
 
     fun showProfile()
 
+    fun showFoodies()
+
 }

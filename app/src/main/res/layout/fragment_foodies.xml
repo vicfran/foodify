@@ -6,12 +6,4 @@
     android:orientation="vertical"
     android:background="@color/baseline">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/Toolbar"
-        android:elevation="4dp"/>
-
-
 </LinearLayout>

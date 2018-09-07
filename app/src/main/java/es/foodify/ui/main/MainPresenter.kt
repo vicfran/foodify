@@ -8,4 +8,8 @@ class MainPresenter(private val view: MainView) : BasePresenter() {
         view.showProfile()
     }
 
+    fun onFoodiesClicked() {
+        view.showFoodies()
+    }
+
 }
