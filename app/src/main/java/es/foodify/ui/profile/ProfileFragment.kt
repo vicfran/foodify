@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.yarolegovich.lovelydialog.LovelyChoiceDialog
 import com.yarolegovich.lovelydialog.LovelyTextInputDialog
@@ -15,6 +14,7 @@ import es.foodify.R
 import es.foodify.ui.common.BaseActivity
 import es.foodify.ui.common.BaseFragment
 import es.foodify.ui.common.checkGooglePlayServicesAvailable
+import es.foodify.ui.common.models.FoodieModel
 import es.foodify.ui.common.models.FoodsModel
 import es.foodify.ui.common.models.TimeModel
 import es.foodify.ui.common.models.getSelected
@@ -38,10 +38,6 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
         with (tvLocation) { setOnClickListener { presenter.onLocationClicked(text.toString()) }}
         with (tvFoods) { setOnClickListener { presenter.onFoodsClicked(text.toString()) }}
         with (tvTime) { setOnClickListener { presenter.onTimeClicked(text.toString()) }}
-    }
-
-    override fun onResume() {
-        super.onResume()
         presenter.onProfileNeeded()
     }
 
@@ -49,15 +45,15 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
         if (requestCode == REQUEST_CODE_PICK_PLACE) {
             if (resultCode == Activity.RESULT_OK) {
                 val place = PlacePicker.getPlace(activity, data)
-                Toast.makeText(activity, "Place ${place.name}", Toast.LENGTH_LONG).show()
+                presenter.onLocationSelected(place.address.toString())
             }
         }
     }
 
     override fun presenter(): ProfilePresenter = ProfilePresenter(this, assembler.repositoryProvider)
 
-    override fun showProfile(profile: ProfileModel) {
-        with (profile) {
+    override fun showProfile(foodie: FoodieModel) {
+        with (foodie) {
             showName(name)
             showLocation(location)
             showFoods(foods)

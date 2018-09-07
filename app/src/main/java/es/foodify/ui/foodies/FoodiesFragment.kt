@@ -1,4 +1,4 @@
-package es.foodify.ui.foodifiers
+package es.foodify.ui.foodies
 
 import android.os.Bundle
 import android.view.LayoutInflater

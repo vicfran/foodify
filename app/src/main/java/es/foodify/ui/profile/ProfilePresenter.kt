@@ -9,8 +9,8 @@ import es.foodify.ui.common.models.toViewModel
 
 class ProfilePresenter(private val view: ProfileView, repositoryProvider: RepositoryProvider) : BasePresenter() {
 
-    private val userRepository = repositoryProvider.userRepository
-    private val foodsRepository = repositoryProvider.foodsRepository
+    private val userRepository = repositoryProvider.foodieRepository
+    private val foodsRepository = repositoryProvider.foodRepository
 
     fun onProfileNeeded() = view.showProfile(userRepository.getMyProfile().toViewModel())
 

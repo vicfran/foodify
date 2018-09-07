@@ -1,12 +1,12 @@
 package es.foodify.common
 
 import es.foodify.data.FoodDataRepository
-import es.foodify.data.UserDataRepository
+import es.foodify.data.FoodieDataRepository
 
 class RepositoryProvider {
 
-    val userRepository = UserDataRepository()
+    val foodieRepository = FoodieDataRepository()
 
-    val foodsRepository = FoodDataRepository()
+    val foodRepository = FoodDataRepository()
 
 }

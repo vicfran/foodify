@@ -1,4 +1,4 @@
-package es.foodify.ui.foodifiers
+package es.foodify.ui.foodies
 
 import es.foodify.common.RepositoryProvider
 import es.foodify.ui.common.BasePresenter

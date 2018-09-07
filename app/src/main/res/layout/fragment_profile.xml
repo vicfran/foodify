@@ -84,7 +84,9 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:focusable="true"
-                tools:text="Madrid"/>
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Paseo de Zorrilla, s/n, 47007 Valladolid, Espana"/>
 
             <TextView
                 android:id="@+id/tvFoodTitle"

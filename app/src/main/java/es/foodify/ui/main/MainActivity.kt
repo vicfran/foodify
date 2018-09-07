@@ -7,7 +7,7 @@ import es.foodify.R
 import es.foodify.R.id
 import es.foodify.R.layout
 import es.foodify.ui.common.BaseActivity
-import es.foodify.ui.foodifiers.FoodiesFragment
+import es.foodify.ui.foodies.FoodiesFragment
 import es.foodify.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.navigation
 

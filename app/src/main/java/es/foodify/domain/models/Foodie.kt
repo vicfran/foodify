@@ -1,6 +1,6 @@
 package es.foodify.domain.models
 
-data class User(
+data class Foodie(
     val name: String,
     val location: String,
     val foods: Foods,

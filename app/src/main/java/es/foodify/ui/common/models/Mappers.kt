@@ -1,13 +1,12 @@
 package es.foodify.ui.common.models
 
 import es.foodify.domain.models.Food
+import es.foodify.domain.models.Foodie
 import es.foodify.domain.models.Foods
 import es.foodify.domain.models.Time
-import es.foodify.domain.models.User
-import es.foodify.ui.profile.ProfileModel
 
-fun User.toViewModel() =
-    ProfileModel(
+fun Foodie.toViewModel() =
+    FoodieModel(
         name,
         location,
         foods.toViewModel(),
