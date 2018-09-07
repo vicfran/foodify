@@ -28,6 +28,10 @@ class ProfilePresenter(private val view: ProfileView, repositoryProvider: Reposi
         view.showEditLocation(location)
     }
 
+    fun onLocationSelected(location: String) {
+        view.showLocation(location)
+    }
+
     fun onFoodsClicked(foods: String) {
         view.showEditFoods(foods.toFoodsModel(), foodsRepository.foods().toViewModel())
     }

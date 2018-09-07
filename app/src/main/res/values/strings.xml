@@ -5,7 +5,7 @@
 
     <string name="title_notifications">Notifications</string>
 
-    <string name="title_location">¿Dónde quieres comer?</string>
+    <string name="title_location">¿Por dónde quieres comer?</string>
     <string name="title_food">¿Qué te apetece?</string>
-    <string name="title_time">¿A qué hora?</string><string name="title_name">Tu nombre</string>
+    <string name="title_time">¿Sobre qué hora?</string><string name="title_name">Tu nombre</string>
 </resources>
